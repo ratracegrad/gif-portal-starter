@@ -111,6 +111,11 @@
   object-fit: cover;
 }
 
+.gif-item p {
+  font-size: 18px;
+  color: white;
+}
+
 .connected-container input[type='text'] {
   display: inline-block;
   color: white;
