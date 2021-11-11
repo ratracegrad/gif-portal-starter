@@ -12,7 +12,7 @@ import kp from './keypair.json';
 // Constants
 const TWITTER_HANDLE = 'ratracegrad';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const { SystemProgram, Keypair } = web3;
+const { SystemProgram } = web3;
 const arr = Object.values(kp._keypair.secretKey)
 const secret = new Uint8Array(arr)
 const baseAccount = web3.Keypair.fromSecretKey(secret)
@@ -204,7 +204,7 @@ const App = () => {
       console.log('Fetching GIF list...');
       getGifList()
     }
-  }, [walletAddress]);
+  }, [walletAddress, getGifList]);
 
   return (
     <div className="App">
