@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 import { Connection, PublicKey, clusterApiUrl} from '@solana/web3.js';
@@ -106,7 +106,7 @@ const App = () => {
     }
   };
 
-  const getGifList = async() => {
+  const getGifList = useCallback(async() => {
     try {
       const provider = getProvider();
       const program = new Program(idl, programID, provider);
@@ -119,7 +119,7 @@ const App = () => {
       console.log("Error in getGifs: ", error)
       setGifList(null);
     }
-  }
+  }, []);
 
   const createGifAccount = async () => {
     try {
